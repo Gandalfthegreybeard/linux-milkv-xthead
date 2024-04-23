@@ -5,7 +5,11 @@ riscv-march-$(CONFIG_ARCH_RV32I)       := rv32ima
 riscv-march-$(CONFIG_ARCH_RV64I)       := rv64ima
 riscv-march-$(CONFIG_FPU)              := $(riscv-march-y)fd
 riscv-march-$(CONFIG_RISCV_ISA_C)      := $(riscv-march-y)c
-riscv-march-$(CONFIG_VECTOR)           := $(riscv-march-y)v0p7
+riscv-march-$(CONFIG_VECTOR)           := $(riscv-march-y)v
+riscv-march-$(CONFIG_ERRATA_THEAD_VECTOR)       := $(riscv-march-y)_xtheadvector
+riscv-march-$(CONFIG_ERRATA_THEAD_BA)       := $(riscv-march-y)_xtheadba
+riscv-march-$(CONFIG_ERRATA_THEAD_BB)       := $(riscv-march-y)_xtheadbb
+riscv-march-$(CONFIG_ERRATA_THEAD_BS)       := $(riscv-march-y)_xtheadbs
 
 ifndef CONFIG_TOOLCHAIN_NEEDS_OLD_ISA_SPEC
 riscv-march-$(CONFIG_TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI) := $(riscv-march-y)_zicsr_zifencei
