@@ -60,7 +60,13 @@ include $(srctree)/arch/riscv/Makefile.isa
 
 # Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
 # matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
-KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+ifdef CONFIG_RISCV_ISA_V
+	KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+endif
+
+ifdef CONFIG_ERRATA_XTHEAD_VECTOR
+	KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^_xtheadvector_]*)_xtheadvector?/\1\2/')
+endif
 
 KBUILD_AFLAGS += -march=$(riscv-march-y)
 
