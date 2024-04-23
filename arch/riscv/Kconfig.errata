@@ -119,4 +119,45 @@ config ERRATA_THEAD_PMU
 
 	  If you don't know what to do here, say "Y".
 
+config ERRATA_THEAD_BA
+	bool "Apply T-Head BA errata"
+	depends on ERRATA_THEAD
+	default y
+	help
+	  The T-Head C9xx cores implement a Address Bit Manipulation extension 
+
+	  If you don't know what to do here, say "Y".
+
+config ERRATA_THEAD_BB
+	bool "Apply T-Head BB errata"
+	depends on ERRATA_THEAD
+	default y
+	help
+	  The T-Head C9xx cores implement a Bit Manipulation extension 
+
+	  If you don't know what to do here, say "Y".
+
+config ERRATA_THEAD_BS
+	bool "Apply T-Head BS errata"
+	depends on ERRATA_THEAD
+	default y
+	help
+	  The T-Head C9xx cores implement a Bit Single Manipulation extension 
+
+	  If you don't know what to do here, say "Y".
+
+config ERRATA_THEAD_VECTOR
+       bool "Apply T-Head Vector (RVV 0.7.1) type errata"
+       depends on ERRATA_THEAD && 64BIT && MMU
+       depends on FPU
+       select DYNAMIC_SIGFRAME
+       select RISCV_ALTERNATIVE_EARLY
+       default n
+       help
+         This will enable the XTHead_Vector type errata to handle the non-standard
+         Vector T-Head SoCs.
+
+         If you don't know what to do here, say "Y".
+
+
 endmenu # "CPU errata selection"
