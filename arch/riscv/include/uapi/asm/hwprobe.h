@@ -67,6 +67,13 @@ struct riscv_hwprobe {
 #define		RISCV_HWPROBE_MISALIGNED_UNSUPPORTED	(4 << 0)
 #define		RISCV_HWPROBE_MISALIGNED_MASK		(7 << 0)
 #define RISCV_HWPROBE_KEY_ZICBOZ_BLOCK_SIZE	6
+#define RISCV_HWPROBE_KEY_XTHEAD	7
+#define		RISCV_HWPROBE_XTHEAD_CMO (1 << 0)
+#define		RISCV_HWPROBE_XTHEAD_SYNC (2 << 0)
+#define		RISCV_HWPROBE_XTHEAD_BA (3 << 0)
+#define		RISCV_HWPROBE_XTHEAD_BB (4 << 0)
+#define		RISCV_HWPROBE_XTHEAD_BS (5 << 0)
+#define		RISCV_HWPROBE_XTHEAD_VECTOR		(13 << 0)
 /* Increase RISCV_HWPROBE_MAX_KEY when adding items. */
 
 /* Flags */
