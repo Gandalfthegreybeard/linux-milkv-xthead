@@ -484,5 +484,9 @@ properties:
             Registers in the AX45MP datasheet.
             https://www.andestech.com/wp-content/uploads/AX45MP-1C-Rev.-5.0.0-Datasheet.pdf
 
+        - const: xtheadvector
+          description:
+            The preratified 0.7.1 version of the RVV spec as implemented by THead in the C906 and C920 Cores.
+
 additionalProperties: true
 ...
